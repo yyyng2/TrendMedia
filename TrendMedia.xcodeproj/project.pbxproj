@@ -13,6 +13,10 @@
 		18020D612884DDE2008606BE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18020D5F2884DDE2008606BE /* Main.storyboard */; };
 		18020D632884DDE4008606BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18020D622884DDE4008606BE /* Assets.xcassets */; };
 		18020D662884DDE4008606BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18020D642884DDE4008606BE /* LaunchScreen.storyboard */; };
+		18020D6E2884F123008606BE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18020D6D2884F123008606BE /* Home.storyboard */; };
+		18020D702884FE3A008606BE /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18020D6F2884FE3A008606BE /* SettingTableViewController.swift */; };
+		18020D7228851EDA008606BE /* TablePractice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18020D7128851EDA008606BE /* TablePractice.storyboard */; };
+		18020D7428851F25008606BE /* DynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18020D7328851F25008606BE /* DynamicTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		18020D622884DDE4008606BE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		18020D652884DDE4008606BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18020D672884DDE4008606BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		18020D6D2884F123008606BE /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		18020D6F2884FE3A008606BE /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		18020D7128851EDA008606BE /* TablePractice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TablePractice.storyboard; sourceTree = "<group>"; };
+		18020D7328851F25008606BE /* DynamicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +68,10 @@
 				18020D5B2884DDE2008606BE /* SceneDelegate.swift */,
 				18020D5D2884DDE2008606BE /* ViewController.swift */,
 				18020D5F2884DDE2008606BE /* Main.storyboard */,
+				18020D6D2884F123008606BE /* Home.storyboard */,
+				18020D6F2884FE3A008606BE /* SettingTableViewController.swift */,
+				18020D7128851EDA008606BE /* TablePractice.storyboard */,
+				18020D7328851F25008606BE /* DynamicTableViewController.swift */,
 				18020D622884DDE4008606BE /* Assets.xcassets */,
 				18020D642884DDE4008606BE /* LaunchScreen.storyboard */,
 				18020D672884DDE4008606BE /* Info.plist */,
@@ -125,9 +137,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18020D7228851EDA008606BE /* TablePractice.storyboard in Resources */,
 				18020D662884DDE4008606BE /* LaunchScreen.storyboard in Resources */,
 				18020D632884DDE4008606BE /* Assets.xcassets in Resources */,
 				18020D612884DDE2008606BE /* Main.storyboard in Resources */,
+				18020D6E2884F123008606BE /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,9 +152,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18020D702884FE3A008606BE /* SettingTableViewController.swift in Sources */,
 				18020D5E2884DDE2008606BE /* ViewController.swift in Sources */,
 				18020D5A2884DDE2008606BE /* AppDelegate.swift in Sources */,
 				18020D5C2884DDE2008606BE /* SceneDelegate.swift in Sources */,
+				18020D7428851F25008606BE /* DynamicTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,7 +308,7 @@
 				INFOPLIST_FILE = TrendMedia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = TablePractice;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -320,7 +336,7 @@
 				INFOPLIST_FILE = TrendMedia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = TablePractice;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
