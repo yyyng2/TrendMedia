@@ -14,9 +14,23 @@
 		18020D632884DDE4008606BE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18020D622884DDE4008606BE /* Assets.xcassets */; };
 		18020D662884DDE4008606BE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18020D642884DDE4008606BE /* LaunchScreen.storyboard */; };
 		18020D6E2884F123008606BE /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18020D6D2884F123008606BE /* Home.storyboard */; };
-		18020D702884FE3A008606BE /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18020D6F2884FE3A008606BE /* SettingTableViewController.swift */; };
-		18020D7228851EDA008606BE /* TablePractice.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18020D7128851EDA008606BE /* TablePractice.storyboard */; };
-		18020D7428851F25008606BE /* DynamicTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18020D7328851F25008606BE /* DynamicTableViewController.swift */; };
+		18020D702884FE3A008606BE /* PracticeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18020D6F2884FE3A008606BE /* PracticeTableViewController.swift */; };
+		18020D7228851EDA008606BE /* Setting.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 18020D7128851EDA008606BE /* Setting.storyboard */; };
+		18020D7428851F25008606BE /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18020D7328851F25008606BE /* SettingTableViewController.swift */; };
+		189821512886400F00A887BD /* Search.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189821502886400F00A887BD /* Search.storyboard */; };
+		189821532886404100A887BD /* Trend.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189821522886404100A887BD /* Trend.storyboard */; };
+		189821552886407700A887BD /* Intro.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 189821542886407700A887BD /* Intro.storyboard */; };
+		18982157288643FB00A887BD /* TrendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18982156288643FB00A887BD /* TrendViewController.swift */; };
+		189821592886440F00A887BD /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189821582886440F00A887BD /* SearchViewController.swift */; };
+		1898215B2886452C00A887BD /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898215A2886452C00A887BD /* UIViewController+Extension.swift */; };
+		1898215D2886478B00A887BD /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898215C2886478B00A887BD /* UITextField+Extension.swift */; };
+		1898215F28864B9A00A887BD /* BucketlistTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898215E28864B9A00A887BD /* BucketlistTableViewController.swift */; };
+		1898216128864D9800A887BD /* BucketlistTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898216028864D9800A887BD /* BucketlistTableViewCell.swift */; };
+		1898216328867A0100A887BD /* Shopping.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1898216228867A0100A887BD /* Shopping.storyboard */; };
+		1898216528867A1B00A887BD /* ShoppingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898216428867A1B00A887BD /* ShoppingTableViewController.swift */; };
+		1898216D288691D200A887BD /* ShoppingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898216C288691D200A887BD /* ShoppingTableViewCell.swift */; };
+		1898216F2886BE1F00A887BD /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1898216E2886BE1F00A887BD /* SearchTableViewController.swift */; };
+		189821712886C84800A887BD /* SearchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 189821702886C84800A887BD /* SearchTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,9 +43,23 @@
 		18020D652884DDE4008606BE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		18020D672884DDE4008606BE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		18020D6D2884F123008606BE /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
-		18020D6F2884FE3A008606BE /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
-		18020D7128851EDA008606BE /* TablePractice.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TablePractice.storyboard; sourceTree = "<group>"; };
-		18020D7328851F25008606BE /* DynamicTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicTableViewController.swift; sourceTree = "<group>"; };
+		18020D6F2884FE3A008606BE /* PracticeTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeTableViewController.swift; sourceTree = "<group>"; };
+		18020D7128851EDA008606BE /* Setting.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Setting.storyboard; sourceTree = "<group>"; };
+		18020D7328851F25008606BE /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		189821502886400F00A887BD /* Search.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Search.storyboard; sourceTree = "<group>"; };
+		189821522886404100A887BD /* Trend.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trend.storyboard; sourceTree = "<group>"; };
+		189821542886407700A887BD /* Intro.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Intro.storyboard; sourceTree = "<group>"; };
+		18982156288643FB00A887BD /* TrendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrendViewController.swift; sourceTree = "<group>"; };
+		189821582886440F00A887BD /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		1898215A2886452C00A887BD /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		1898215C2886478B00A887BD /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		1898215E28864B9A00A887BD /* BucketlistTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketlistTableViewController.swift; sourceTree = "<group>"; };
+		1898216028864D9800A887BD /* BucketlistTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BucketlistTableViewCell.swift; sourceTree = "<group>"; };
+		1898216228867A0100A887BD /* Shopping.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Shopping.storyboard; sourceTree = "<group>"; };
+		1898216428867A1B00A887BD /* ShoppingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewController.swift; sourceTree = "<group>"; };
+		1898216C288691D200A887BD /* ShoppingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingTableViewCell.swift; sourceTree = "<group>"; };
+		1898216E2886BE1F00A887BD /* SearchTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
+		189821702886C84800A887BD /* SearchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,9 +97,23 @@
 				18020D5D2884DDE2008606BE /* ViewController.swift */,
 				18020D5F2884DDE2008606BE /* Main.storyboard */,
 				18020D6D2884F123008606BE /* Home.storyboard */,
-				18020D6F2884FE3A008606BE /* SettingTableViewController.swift */,
-				18020D7128851EDA008606BE /* TablePractice.storyboard */,
-				18020D7328851F25008606BE /* DynamicTableViewController.swift */,
+				18020D6F2884FE3A008606BE /* PracticeTableViewController.swift */,
+				189821542886407700A887BD /* Intro.storyboard */,
+				1898216228867A0100A887BD /* Shopping.storyboard */,
+				1898216428867A1B00A887BD /* ShoppingTableViewController.swift */,
+				1898216C288691D200A887BD /* ShoppingTableViewCell.swift */,
+				18020D7128851EDA008606BE /* Setting.storyboard */,
+				18020D7328851F25008606BE /* SettingTableViewController.swift */,
+				189821502886400F00A887BD /* Search.storyboard */,
+				189821582886440F00A887BD /* SearchViewController.swift */,
+				1898216E2886BE1F00A887BD /* SearchTableViewController.swift */,
+				189821702886C84800A887BD /* SearchTableViewCell.swift */,
+				189821522886404100A887BD /* Trend.storyboard */,
+				1898215E28864B9A00A887BD /* BucketlistTableViewController.swift */,
+				1898216028864D9800A887BD /* BucketlistTableViewCell.swift */,
+				18982156288643FB00A887BD /* TrendViewController.swift */,
+				1898215A2886452C00A887BD /* UIViewController+Extension.swift */,
+				1898215C2886478B00A887BD /* UITextField+Extension.swift */,
 				18020D622884DDE4008606BE /* Assets.xcassets */,
 				18020D642884DDE4008606BE /* LaunchScreen.storyboard */,
 				18020D672884DDE4008606BE /* Info.plist */,
@@ -137,10 +179,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18020D7228851EDA008606BE /* TablePractice.storyboard in Resources */,
+				189821532886404100A887BD /* Trend.storyboard in Resources */,
+				18020D7228851EDA008606BE /* Setting.storyboard in Resources */,
 				18020D662884DDE4008606BE /* LaunchScreen.storyboard in Resources */,
+				189821552886407700A887BD /* Intro.storyboard in Resources */,
 				18020D632884DDE4008606BE /* Assets.xcassets in Resources */,
 				18020D612884DDE2008606BE /* Main.storyboard in Resources */,
+				1898216328867A0100A887BD /* Shopping.storyboard in Resources */,
+				189821512886400F00A887BD /* Search.storyboard in Resources */,
 				18020D6E2884F123008606BE /* Home.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -152,11 +198,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18020D702884FE3A008606BE /* SettingTableViewController.swift in Sources */,
+				1898215D2886478B00A887BD /* UITextField+Extension.swift in Sources */,
+				1898216D288691D200A887BD /* ShoppingTableViewCell.swift in Sources */,
+				1898216528867A1B00A887BD /* ShoppingTableViewController.swift in Sources */,
+				1898216F2886BE1F00A887BD /* SearchTableViewController.swift in Sources */,
+				1898215B2886452C00A887BD /* UIViewController+Extension.swift in Sources */,
+				18020D702884FE3A008606BE /* PracticeTableViewController.swift in Sources */,
+				189821592886440F00A887BD /* SearchViewController.swift in Sources */,
 				18020D5E2884DDE2008606BE /* ViewController.swift in Sources */,
 				18020D5A2884DDE2008606BE /* AppDelegate.swift in Sources */,
+				189821712886C84800A887BD /* SearchTableViewCell.swift in Sources */,
 				18020D5C2884DDE2008606BE /* SceneDelegate.swift in Sources */,
-				18020D7428851F25008606BE /* DynamicTableViewController.swift in Sources */,
+				1898215F28864B9A00A887BD /* BucketlistTableViewController.swift in Sources */,
+				18982157288643FB00A887BD /* TrendViewController.swift in Sources */,
+				1898216128864D9800A887BD /* BucketlistTableViewCell.swift in Sources */,
+				18020D7428851F25008606BE /* SettingTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -308,7 +364,7 @@
 				INFOPLIST_FILE = TrendMedia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = TablePractice;
+				INFOPLIST_KEY_UIMainStoryboardFile = Shopping;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -336,7 +392,7 @@
 				INFOPLIST_FILE = TrendMedia/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = TablePractice;
+				INFOPLIST_KEY_UIMainStoryboardFile = Shopping;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
