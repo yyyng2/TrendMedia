@@ -15,7 +15,7 @@ struct Todo{
 
 class ShoppingTableViewController: UITableViewController {
     
-    let localRealm = try! Realm()
+    public let localRealm = try! Realm()
     
     var shoppingLists: Results<UserShoppingList>!{
         didSet{
@@ -146,7 +146,7 @@ class ShoppingTableViewController: UITableViewController {
     @IBAction func addButtonTapped(_ sender: UIButton) {
 //        shoppingList.append(Todo(title: addShoppingTextField.text!, done: false))
         guard let text = addShoppingTextField.text else {return}
-        let task = UserShoppingList(shoppingTitle: text)
+        let task = UserShoppingList(shoppingTitle: text, shoppingDetail: "메모를 작성해 보세요.")
         try! localRealm.write {
             localRealm.add(task) //Create
         tableView.reloadData()
@@ -183,6 +183,7 @@ class ShoppingTableViewController: UITableViewController {
 //        indexPath.row % 2 == 0 ? cell.starButton.setImage(UIImage(systemName: "star"), for: .normal) : cell.starButton.setImage(UIImage(systemName: "star.fill"), for: .normal)
 //        let value = shoppingList[indexPath.row].done ? "checkmark.square.fill" : "checkmark.square"
 //        cell.checkBoxButton.setImage(UIImage(systemName: value), for: .normal)
+        cell.cellLabel.sizeToFit()
         cell.checkBoxButton.tag = indexPath.row
         cell.starButton.tag = indexPath.row
         
@@ -198,7 +199,6 @@ class ShoppingTableViewController: UITableViewController {
         
         return cell
     }
-    
     
     // 0번 인덱스의 checkBoxButton만 체크됐다 풀렸다함.. 밑의 starButton 탭기능을 실행해도 0번 checkBoxButton만 동작
     @objc func checkBoxButtonTapped(sender: UIButton){
@@ -227,6 +227,13 @@ class ShoppingTableViewController: UITableViewController {
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .fade)
         self.fetchRealm()
 
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ShoppingDetailViewController()
+        vc.shopList = shoppingLists[indexPath.row]
+        print(shoppingLists[indexPath.row])
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
