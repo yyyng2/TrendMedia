@@ -14,9 +14,9 @@ extension UIViewController {
         view.backgroundColor = .orange
     }
     
-    func showAlert(){
-        let alert = UIAlertController(title: "alert", message: "message", preferredStyle: .alert)
-        let ok = UIAlertAction(title: "ok", style: .default)
+    func showAlert(title: String, buttonTitle: String){
+        let alert = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: buttonTitle, style: .default)
         alert.addAction(ok)
         present(alert, animated: true)
     }
