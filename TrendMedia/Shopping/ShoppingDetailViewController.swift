@@ -13,11 +13,24 @@ import RealmSwift
 protocol SelectImageDelegate{
     func sendImageData(image: UIImage)
 }
+protocol SelectDateDelegate{
+    func sendDate(date: String)
+}
+
 
 class ShoppingDetailViewController: UIViewController {
 
+   
+    
     var shopList: UserShoppingList?
-
+    
+    var repository = UserShoppingListRepository()
+    
+    let dateformat: DateFormatter = {
+          let formatter = DateFormatter()
+           formatter.dateFormat = "yyyy.MM.dd. E, a hh:mm"
+           return formatter
+    }()
     var shopImageView: UIImageView = {
         let view = UIImageView()
         view.layer.borderWidth = 1
@@ -32,15 +45,20 @@ class ShoppingDetailViewController: UIViewController {
     }()
     let dateString: UILabel = {
        let string = UILabel()
-        string.text = "등록 날짜"
+        string.text = "구매 예정 날짜"
         return string
     }()
     lazy var dateLabel: UILabel = {
-       let label = UILabel()
-        label.layer.borderWidth = 1
-        label.layer.borderColor = UIColor.black.cgColor
-        label.text = "\(shopList!.ShoppingRegisterDate)"
-        return label
+        let label = UILabel()
+         label.layer.borderWidth = 1
+         label.layer.borderColor = UIColor.black.cgColor
+//         label.text = "\(shopList!.ShoppingDoDate)"
+         return label
+    }()
+    lazy var dateButton: UIButton = {
+       let button = UIButton()
+        button.backgroundColor = .clear
+        return button
     }()
     let titleString: UILabel = {
        let string = UILabel()
@@ -69,29 +87,35 @@ class ShoppingDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
-        setConstraints()
+      
         view.backgroundColor = .white
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Save", style: .plain, target: self, action: #selector(saveButtonTapped))
        
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configure()
+        setConstraints()
+    }
     @objc func saveButtonTapped(){
-        //상세화면 수정기능 구현 실패...
+        //상세화면 수정기능 구현 실패 -> 성공
+        
         guard let titleText = self.titleLabel.text else {return}
         guard let contentText = self.detailView.text else {return}
-        let vc = ShoppingTableViewController()
-//        try! vc.localRealm.write{
-//            vc.localRealm.create(UserShoppingList.self, value: ["objectId": self.shopList!.objectId, "ShoppingDetail": contentText, "ShoppingTitle": titleText], update: .modified)
-//            vc.shoppingLists = vc.localRealm.objects(UserShoppingList.self)
-//            vc.tableView.reloadData()
-//        }
+        guard let dateText = self.dateLabel.text else {return}
+        try! repository.localRealm.write{
+            repository.localRealm.create(UserShoppingList.self, value: ["objectId": self.shopList!.objectId, "ShoppingDetail": contentText, "ShoppingTitle": titleText, "ShoppingDoDate": dateText], update: .modified)
+
+        }
         
         //이미지 저장 2.
         guard let id = shopList?.objectId else { return }
         do{
-            try vc.localRealm.write{
+            try repository.localRealm.write{
                 shopList?.ShoppingTitle = "\(titleText)"
                 shopList?.ShoppingDetail = "\(contentText)"
+                shopList?.ShoppingDoDate = "\(dateText)"
             }
         } catch let error {
             print(error)
@@ -100,21 +124,29 @@ class ShoppingDetailViewController: UIViewController {
         if let image = shopImageView.image{
             saveImageToDocument(fileName: "\(id).jpg", image: image)
         }
-        
+     
         self.navigationController?.popViewController(animated: true)
+
     }
 
     
     func configure(){
-        [shopImageView,searchButton,dateString,dateLabel,titleString,titleLabel,detailString,detailView].forEach {
+        [shopImageView,searchButton,dateString,dateLabel,dateButton,titleString,titleLabel,detailString,detailView].forEach {
             view.addSubview($0)
         }
-        searchButton.addTarget(self, action: #selector(searchButtonClicked), for: .touchUpInside)
+        searchButton.addTarget(self, action: #selector(searchButtonTapped), for: .touchUpInside)
+        dateButton.addTarget(self, action: #selector(dateButtonTapped), for: .touchUpInside)
         shopImageView.image = loadImageFromDocument(fileName: "\(shopList!.objectId).jpg")
+        dateLabel.text = "\(shopList!.ShoppingDoDate)"
     }
-    @objc func searchButtonClicked() {
+    @objc func searchButtonTapped() {
         let vc = ShoppingSearchImageViewController()
             vc.delegate = self
+        transition(vc, transitionStyle: .presentNavigation)
+    }
+    @objc func dateButtonTapped(){
+        let vc = ShoppingCalendarViewController()
+        vc.shopList = shopList
         transition(vc, transitionStyle: .presentNavigation)
     }
     
@@ -142,10 +174,16 @@ class ShoppingDetailViewController: UIViewController {
             make.top.equalTo(dateString.snp.bottom)
             make.centerX.equalTo(view)
         }
+        dateButton.snp.makeConstraints { make in
+            make.width.equalTo(view).multipliedBy(0.8)
+            make.height.equalTo(22)
+            make.top.equalTo(dateString.snp.bottom)
+            make.centerX.equalTo(view)
+        }
         titleString.snp.makeConstraints { make in
             make.width.equalTo(view).multipliedBy(0.8)
             make.height.equalTo(22)
-            make.top.equalTo(dateLabel.snp.bottom)
+            make.top.equalTo(dateButton.snp.bottom)
             make.centerX.equalTo(view)
         }
         titleLabel.snp.makeConstraints { make in
@@ -181,3 +219,13 @@ extension ShoppingDetailViewController: SelectImageDelegate{
     }
     
 }
+extension ShoppingDetailViewController: SelectDateDelegate{
+    func sendDate(date: String) {
+        print(#function)
+        dateLabel.text = date
+//        repository.updateDoDate(record: shopList!, date: dateFor)
+//        dateButton.setTitle("\(shopList?.ShoppingDoDate)", for: .normal)
+    }
+    
+}
+

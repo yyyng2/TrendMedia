@@ -15,7 +15,7 @@ struct Todo{
 
 class ShoppingTableViewController: UITableViewController {
     
-    public let localRealm = try! Realm()
+    let repository = UserShoppingListRepository()
     
     var shoppingLists: Results<UserShoppingList>!{
         didSet{
@@ -72,12 +72,12 @@ class ShoppingTableViewController: UITableViewController {
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       fetchRealm()
+        fetchRealm()
         configure()
     }
     func fetchRealm(){
         //Realm 3. Realm 데이터를 정렬해 tasks 에 담기
-        shoppingLists = localRealm.objects(UserShoppingList.self).sorted(byKeyPath: "ShoppingTitle", ascending: true)
+        shoppingLists = repository.localRealm.objects(UserShoppingList.self).sorted(byKeyPath: "ShoppingTitle", ascending: true)
     }
     
     func designUI(){
@@ -100,9 +100,15 @@ class ShoppingTableViewController: UITableViewController {
 //        navigationItem.leftBarButtonItems = [sortButton, filterButton]
         if #available(iOS 13.0, *) {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "정렬", menu: menu)
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "백업", style: .plain, target: self, action: #selector(backupRestroeButtonTapped))
         } else {
             self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "정렬", style: .plain, target: self, action: #selector(showActionSheet))
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "백업", style: .plain, target: self, action: #selector(backupRestroeButtonTapped))
         }
+    }
+    @objc func backupRestroeButtonTapped(){
+        let vc = BackupRestoreViewController()
+        transition(vc, transitionStyle: .present)
     }
     @objc func showActionSheet(_ sender: UIBarButtonItem) {
             let alert = UIAlertController(title: "정렬", message: nil, preferredStyle: .actionSheet)
@@ -122,21 +128,21 @@ class ShoppingTableViewController: UITableViewController {
         }
     
     @objc func favoriteSortButtonTapped(){
-        shoppingLists = localRealm.objects(UserShoppingList.self).sorted(byKeyPath: "ShoppingFavorite", ascending: false)
+        shoppingLists = repository.localRealm.objects(UserShoppingList.self).sorted(byKeyPath: "ShoppingFavorite", ascending: false)
         tableView.reloadData()
     }
     @objc func dateSortButtonTapped(){
-        shoppingLists = localRealm.objects(UserShoppingList.self).sorted(byKeyPath: "ShoppingRegisterDate", ascending: true)
+        shoppingLists = repository.localRealm.objects(UserShoppingList.self).sorted(byKeyPath: "ShoppingRegisterDate", ascending: true)
         tableView.reloadData()
     }
     @objc func doneSortButtonTapped(){
-        shoppingLists = localRealm.objects(UserShoppingList.self).sorted(byKeyPath: "ShoppingDone", ascending: false)
+        shoppingLists = repository.localRealm.objects(UserShoppingList.self).sorted(byKeyPath: "ShoppingDone", ascending: false)
         tableView.reloadData()
     }
     
     //realm filter query, NSPredicate
     @objc func filterButtonTapped(){
-        shoppingLists = localRealm.objects(UserShoppingList.self).filter("diaryTitle CONTAINS[c] '일기'")
+        shoppingLists = repository.localRealm.objects(UserShoppingList.self).filter("diaryTitle CONTAINS[c] '일기'")
             //.filter("diaryTitle = '가오늘의 일기35'")
     }
     
@@ -147,10 +153,9 @@ class ShoppingTableViewController: UITableViewController {
 //        shoppingList.append(Todo(title: addShoppingTextField.text!, done: false))
         guard let text = addShoppingTextField.text else {return}
         let task = UserShoppingList(shoppingTitle: text, shoppingDetail: "메모를 작성해 보세요.")
-        try! localRealm.write {
-            localRealm.add(task) //Create
+        repository.addRecord(record: task) //Create
         tableView.reloadData()
-        }
+
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -207,7 +212,7 @@ class ShoppingTableViewController: UITableViewController {
         
 //        shoppingList[sender.tag].done = !shoppingList[sender.tag].done
 //        print(shoppingList[sender.tag].done)
-        try! localRealm.write {
+        try! repository.localRealm.write {
             self.shoppingLists[sender.tag].ShoppingDone = !self.shoppingLists[sender.tag].ShoppingDone
         }
         tableView.reloadRows(at: [IndexPath(row: sender.tag, section: sender.tag)], with: .fade)
@@ -220,7 +225,7 @@ class ShoppingTableViewController: UITableViewController {
 //        shoppingList[sender.tag].done = !shoppingList[sender.tag].done
 //        print(shoppingList[sender.tag].done)
         
-        try! localRealm.write {
+        try! repository.localRealm.write {
             self.shoppingLists[sender.tag].ShoppingFavorite = !self.shoppingLists[sender.tag].ShoppingFavorite
             
         }
@@ -245,12 +250,22 @@ class ShoppingTableViewController: UITableViewController {
         if editingStyle == .delete{
             //Realm Record 삭제
             let taskToDelete = shoppingLists[indexPath.row]
-            try! localRealm.write {
-                localRealm.delete(taskToDelete)
+            try! repository.localRealm.write {
+                repository.localRealm.delete(taskToDelete)
             }
 //            shoppingList.remove(at: indexPath.row)
             tableView.reloadData()
         }
     } //canEditRowAt과 같이써야함
+    
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let favorite = UIContextualAction(style: .normal, title: "삭제") { action, view, completionHandler in
+            
+            self.repository.deleteRecord(record: self.shoppingLists[indexPath.row])
+            
+            self.fetchRealm()
+        }
+        return UISwipeActionsConfiguration(actions: [favorite])
+    }
     
 }

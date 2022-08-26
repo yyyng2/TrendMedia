@@ -15,10 +15,12 @@ class UserShoppingList: Object {
     @Persisted var ShoppingTitle: String
     @Persisted var ShoppingDetail: String
     @Persisted var ShoppingRegisterDate: Date
+    @Persisted var ShoppingDoDate: String
     
     convenience init(shoppingTitle: String, shoppingDetail: String) {
         self.init()
         self.ShoppingRegisterDate = Date()
+        self.ShoppingDoDate = ShoppingDoDate
         self.ShoppingTitle = shoppingTitle
         self.ShoppingDetail = shoppingDetail
         self.ShoppingFavorite = false
